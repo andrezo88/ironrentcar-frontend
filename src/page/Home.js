@@ -1,13 +1,13 @@
 import React from 'react';
-
+import { Navbar } from "../components/Navbar"
 export const Home = () => {
 
 
 
     return (
         <div>
+            <Navbar />
             teste desde home
-            <div>esse aqui é um div</div>
         </div>
     )
 }
