@@ -3,7 +3,7 @@ import axios from "axios";
 class Api {
     constructor() {
         this.rentCarData = axios.create({
-            baseUrl: "http://localhost:5001/"
+            baseUrl: "https://ironrentcar-backend.herokuapp.com/"
         })
 
         this.rentCarData.interceptors.request.use((config) => {
