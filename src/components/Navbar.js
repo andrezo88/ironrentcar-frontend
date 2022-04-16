@@ -6,7 +6,6 @@ import { NavLink } from 'react-router-dom';
 export const Navbar = () => {
 
 
-
     return (
         <nav>
 
@@ -17,34 +16,75 @@ export const Navbar = () => {
                     </li>
                 </NavLink>
             </ul>
-
+            <ul>
+                <li className="rent-car">
+                    RENT CAR
+                </li>
+            </ul>
             <ul className="direita">
 
-                <NavLink to="/">
+                <NavLink to="/"
+                    style={({ isActive }) =>
+                        isActive
+                            ? {
+                                color: "black",
+
+                            }
+                            : {
+                                color: "white",
+                                textDecoration: "none"
+                            }
+                    }
+                >
                     <li>
                         Veículos
                     </li>
                 </NavLink>
 
-                <NavLink to="/signup">
+                <NavLink to="/signup"
+                    style={({ isActive }) =>
+                        isActive
+                            ? {
+                                color: "black",
+
+                            }
+                            : {
+                                color: "white",
+                                textDecoration: "none"
+                            }
+                    }
+                >
                     <li>
                         <img className="avatarImg" src={avatarLogin} alt="avatar" />
+                        Cadastrar
                     </li>
-                    <li>Cadastrar</li>
                 </NavLink>
 
-                <NavLink to="/login">
+                <NavLink to="/login"
+                    style={({ isActive }) =>
+                        isActive
+                            ? {
+                                color: "black",
+
+                            }
+                            : {
+                                color: "white",
+                                textDecoration: "none"
+                            }
+                    }
+
+                >
                     <li>
                         <img className="avatarImg" src={avatarLogin} alt="avatar" />
-                    </li>
-                    <li>
                         Login
                     </li>
                 </NavLink>
 
             </ul>
 
-
+            {/* <ul>
+                <li>Information</li>
+            </ul> */}
 
         </nav>
     )

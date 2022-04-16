@@ -9,18 +9,18 @@ nav {
     display: flex;
     justify-content: space-between;
     height: 70px;
-    /* position: fixed; */
-    /* z-index: 99; */
     background-color:#414bb2;
     align-items: center;
 }
 
 nav li {
-    color: #fff;
+    
     flex-direction: row;
     list-style: none;
     font-weight: bold;
     font-size: 20px;
+    margin-right: 20px;
+    
 } 
 
 .homeImg {
@@ -28,16 +28,22 @@ nav li {
 }
 
 .avatarImg {
-    height: 15px;
-    margin-left:10px;
-    margin-right: 2px; 
+    height: 17px;
+    margin-left:10px; 
+    margin-right: 2px;
 }
 
 .esquerda{
-    margin-left: 20px;
+    margin: 20px;
 } 
 .direita {
     display: flex;
     list-style: none;
-    /* margin: auto 10px; */
+    margin-left: 400px;
+}
+
+.rent-car {
+    margin-left: 650px;
+    font-size: 30px;
+    color: #fff
 }
