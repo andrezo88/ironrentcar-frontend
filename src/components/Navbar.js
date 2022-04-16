@@ -17,25 +17,31 @@ export const Navbar = () => {
                     </li>
                 </NavLink>
             </ul>
+
             <ul className="direita">
 
-                <li>
-                    <NavLink to="/">
+                <NavLink to="/">
+                    <li>
                         Veículos
-                    </NavLink>
-                </li>
-                <NavLink to="/login">
+                    </li>
+                </NavLink>
+
+                <NavLink to="/signup">
                     <li>
                         <img className="avatarImg" src={avatarLogin} alt="avatar" />
                     </li>
                     <li>Cadastrar</li>
                 </NavLink>
-                <li>
-                    <img className="avatarImg" src={avatarLogin} alt="avatar" />
-                </li>
-                <li>
-                    Login
-                </li>
+
+                <NavLink to="/login">
+                    <li>
+                        <img className="avatarImg" src={avatarLogin} alt="avatar" />
+                    </li>
+                    <li>
+                        Login
+                    </li>
+                </NavLink>
+
             </ul>
 
 
