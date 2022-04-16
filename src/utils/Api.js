@@ -2,11 +2,11 @@ import axios from "axios";
 
 class Api {
     constructor() {
-        this.rentCarData = axios.create({
-            baseUrl: "https://ironrentcar-backend.herokuapp.com/"
+        this.apiConnection = axios.create({
+            baseURL: "https://ironrentcar-backend.herokuapp.com/"
         })
 
-        this.rentCarData.interceptors.request.use((config) => {
+        this.apiConnection.interceptors.request.use((config) => {
             const token = localStorage.getItem("token");
             if (token) {
                 config.headers = {
@@ -18,7 +18,7 @@ class Api {
             console.log(error)
         })
 
-        this.rentCarData.interceptors.request.use((response) => response,
+        this.apiConnection.interceptors.request.use((response) => response,
             (error) => {
                 if (error.response.status === 401) {
                     localStorage.removeItem("token");
@@ -27,15 +27,19 @@ class Api {
             })
     }
 
-    Login = async (loginInfo) => {
+    login = async (loginInfo) => {
+        console.log(loginInfo)
         try {
-            const { data } = await this.rentCarData.post("/auth/login", loginInfo)
+            const { data } = await this.apiConnection.post("/auth/login", loginInfo)
             localStorage.setItem("token", data.token)
-            return { data }
+            localStorage.setItem('loginInfo', JSON.stringify(data.user))
+            return data;
         } catch (error) {
             throw error.response
         }
     }
+
+
 }
 
-export default new Api(); 
+export default new Api();
