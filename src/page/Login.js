@@ -7,7 +7,7 @@ export const Login = () => {
 
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-    //const [message, setMessage] = useState("");
+    const [message, setMessage] = useState("");
     const navigate = useNavigate();
 
     const resetForm = () => {
@@ -22,6 +22,7 @@ export const Login = () => {
             resetForm();
             navigate("/rent")
         } catch (error) {
+            setMessage(error.data.msg)
             console.log(error.status)
         }
     }
@@ -31,7 +32,6 @@ export const Login = () => {
             <Navbar />
             <div>Login</div>
             <div>
-                {/* {message !== "" && <p>{message}</p>} */}
                 <form onSubmit={handleSubmit}>
                     <label htmlFor="email">Email</label>
                     <input id="email" type="text" value={email} onChange={e => setEmail(e.target.value)}></input>
@@ -39,6 +39,7 @@ export const Login = () => {
                     <input id="password" type="password" value={password} onChange={e => setPassword(e.target.value)}></input>
                     <button type="submit">Login</button>
                 </form>
+                {message !== "" && <p>{message}</p>}
             </div>
         </>
     )
