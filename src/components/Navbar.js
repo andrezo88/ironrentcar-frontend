@@ -2,6 +2,7 @@ import React from 'react';
 import './Navbar.css';
 import homeImage from "../images/home2.png"
 import avatarLogin from "../images/avatarlogin.png"
+import ironrentcar from "../images/iron-rent.png"
 import { NavLink } from 'react-router-dom';
 export const Navbar = () => {
 
@@ -18,7 +19,7 @@ export const Navbar = () => {
             </ul>
             <ul>
                 <li className="rent-car">
-                    RENT CAR
+                    <img className="logo" src={ironrentcar} alt="Home" />
                 </li>
             </ul>
             <ul className="direita">
