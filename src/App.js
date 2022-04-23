@@ -3,10 +3,15 @@ import { Home } from "./page/Home"
 import { Login } from "./page/Login"
 import './App.css';
 
+import Vehicles from './page/Vehicles';
+import Rent from './page/Rent';
+
 function App() {
   return (
     <>
       <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/vehicles" element={<Vehicles />} />
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
       </Routes>
