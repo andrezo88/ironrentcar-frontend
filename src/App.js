@@ -3,7 +3,7 @@ import { Home } from "./page/Home"
 import { Login } from "./page/Login"
 import './App.css';
 
-import Vehicles from './page/Vehicles';
+import Vehicles from './components/Vehicles';
 import Rent from './page/Rent';
 
 function App() {

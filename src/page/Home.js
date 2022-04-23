@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Navbar } from "../components/Navbar"
-
+import AddVehicles from '../components/AddVehicles';
+import VehiclesList from '../components/VehiclesList';
 import apiVehicles from '../utils/Api';
 
 export const Home = () => {
@@ -26,6 +27,8 @@ export const Home = () => {
     return (
         <div>
             <Navbar />
+        <AddVehicles getAllVehicles={getAllVehicles} />
+        <VehiclesList cars={cars} getAllVehicles={getAllVehicles} />
             teste desde home
         </div>
     )
