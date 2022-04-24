@@ -2,9 +2,9 @@ import React from 'react';
 import './Navbar.css';
 import homeImage from "../images/home2.png"
 import avatarLogin from "../images/avatarlogin.png"
+import ironrentcar from "../images/iron-rent.png"
 import { NavLink } from 'react-router-dom';
 export const Navbar = () => {
-
 
 
     return (
@@ -17,28 +17,75 @@ export const Navbar = () => {
                     </li>
                 </NavLink>
             </ul>
-            <ul className="direita">
-
-                <li>
-                    <NavLink to="/">
-                        Veículos
-                    </NavLink>
-                </li>
-                <NavLink to="/login">
-                    <li>
-                        <img className="avatarImg" src={avatarLogin} alt="avatar" />
-                    </li>
-                    <li>Cadastrar</li>
-                </NavLink>
-                <li>
-                    <img className="avatarImg" src={avatarLogin} alt="avatar" />
-                </li>
-                <li>
-                    Login
+            <ul>
+                <li className="rent-car">
+                    <img className="logo" src={ironrentcar} alt="Home" />
                 </li>
             </ul>
+            <ul className="direita">
 
+                <NavLink to="/"
+                    style={({ isActive }) =>
+                        isActive
+                            ? {
+                                color: "black",
 
+                            }
+                            : {
+                                color: "white",
+                                textDecoration: "none"
+                            }
+                    }
+                >
+                    <li>
+                        Veículos
+                    </li>
+                </NavLink>
+
+                <NavLink to="/signup"
+                    style={({ isActive }) =>
+                        isActive
+                            ? {
+                                color: "black",
+
+                            }
+                            : {
+                                color: "white",
+                                textDecoration: "none"
+                            }
+                    }
+                >
+                    <li>
+                        <img className="avatarImg" src={avatarLogin} alt="avatar" />
+                        Cadastrar
+                    </li>
+                </NavLink>
+
+                <NavLink to="/login"
+                    style={({ isActive }) =>
+                        isActive
+                            ? {
+                                color: "black",
+
+                            }
+                            : {
+                                color: "white",
+                                textDecoration: "none"
+                            }
+                    }
+
+                >
+                    <li>
+                        <img className="avatarImg" src={avatarLogin} alt="avatar" />
+                        Login
+                    </li>
+                </NavLink>
+
+            </ul>
+
+            {/* <ul>
+                <li>Information</li>
+            </ul> */}
 
         </nav>
     )
