@@ -6,29 +6,29 @@ import VehiclesList from '../components/VehiclesList';
 import apiVehicles from '../utils/Api';
 
 export const Home = () => {
-  const [ cars, setCars] = useState([]);
+    const [cars, setCars] = useState([]);
 
-  const navigate = useNavigate();
+    const navigate = useNavigate();
 
-  const getAllVehicles = async () => {
-    try {
-      const vehicles = await apiVehicles.getCars();
-      setCars(cars);
-    } catch (error) {
-      console.error('na home!', error.status)
-      navigate('/login')
+    const getAllVehicles = async () => {
+        try {
+            const vehicles = await apiVehicles.getCars();
+            setCars(cars);
+        } catch (error) {
+            console.error('na home!', error.status)
+            navigate('/login')
+        }
     }
-  }
 
-  useEffect(() => {
-    getAllVehicles();
-  }, [])
+    useEffect(() => {
+        getAllVehicles();
+    }, [])
 
     return (
         <div>
             <Navbar />
-        <AddVehicles getAllVehicles={getAllVehicles} />
-        <VehiclesList cars={cars} getAllVehicles={getAllVehicles} />
+            <AddVehicles getAllVehicles={getAllVehicles} />
+            <VehiclesList cars={cars} getAllVehicles={getAllVehicles} />
             teste desde home
         </div>
     )
