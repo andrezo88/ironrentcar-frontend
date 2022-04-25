@@ -3,7 +3,8 @@ import axios from "axios";
 class Api {
     constructor() {
         this.apiConnection = axios.create({
-            baseURL: "https://ironrentcar-backend.herokuapp.com/"
+            /* baseURL: "https://ironrentcar-backend.herokuapp.com/" */
+            baseURL: "http://localhost:5001"
         })
 
         this.apiConnection.interceptors.request.use((config) => {
@@ -11,7 +12,7 @@ class Api {
             if (token) {
                 config.headers = {
                     "Authorization": `Bearer ${localStorage.getItem("token")}`
-                };
+                }
             }
             return config
         }, (error) => {
@@ -36,6 +37,16 @@ class Api {
             return data;
         } catch (error) {
             throw error.response
+        }
+    }
+
+    signup = async (signupInfo) => {
+        console.log(signupInfo)
+        try {
+            const { data } = await this.apiConnection.post("/auth/signup", signupInfo)
+            return data;
+        } catch (error) {
+            throw error.response;
         }
     }
 

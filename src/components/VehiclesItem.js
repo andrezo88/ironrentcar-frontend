@@ -1,4 +1,4 @@
-import { useState } from 'react';
+/* import { useState } from 'react';
 import apiVehicles from '../utils/Api';
 
 const VehiclesItem = ({ inserir as chaves da api}) => {
@@ -27,4 +27,4 @@ const VehiclesItem = ({ inserir as chaves da api}) => {
 
     </Row>
   )
-}
+} */

@@ -1,4 +1,4 @@
-import VehiclesList from './VehiclesItem';
+/* import VehiclesList from './VehiclesItem';
 
 const Vehicleslist = ({ Cars, getAllVehicles }) => {
   return (
@@ -7,4 +7,4 @@ const Vehicleslist = ({ Cars, getAllVehicles }) => {
     </div>
   )
 }
-export default VehiclesList;
+export default VehiclesList; */

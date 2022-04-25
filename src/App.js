@@ -2,9 +2,9 @@ import { Routes, Route } from "react-router-dom"
 import { Home } from "./page/Home"
 import { Login } from "./page/Login"
 import './App.css';
-
-import Vehicles from './components/Vehicles';
-import Rent from './page/Rent';
+import { Signup } from "./page/Signup";
+import { Vehicles } from './components/Vehicles';
+import { Rent } from './page/Rent';
 
 function App() {
   return (
@@ -12,7 +12,7 @@ function App() {
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/vehicles" element={<Vehicles />} />
-        <Route path="/" element={<Home />} />
+        <Route path="/signup" element={<Signup />} />
         <Route path="/login" element={<Login />} />
       </Routes>
     </>
