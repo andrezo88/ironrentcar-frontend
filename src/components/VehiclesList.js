@@ -1,10 +1,13 @@
 import VehiclesItem from './VehiclesItem';
 
-const Vehicleslist = ({ Cars, getAllVehicles }) => {
+const Vehicleslist = ({ vehicles, getAllVehicles }) => {
   return (
     <div>
-      {Cars.map(car => <VehiclesItem key={car._id} {...car} getAllVehicles={getAllVehicles} />)}
+      {vehicles.map(vehicle => <VehiclesItem
+        key={vehicle._id}
+       {...vehicle}
+        getAllVehicles={getAllVehicles} />)}
     </div>
   )
 }
-export default VehiclesList;
+export default Vehicleslist;

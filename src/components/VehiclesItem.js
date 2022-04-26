@@ -1,8 +1,18 @@
 import { useState } from 'react';
+import styled from 'styled-components';
 import apiVehicles from '../utils/Api';
 
-const VehiclesItem = ({ inserir as chaves da api}) => {
-  const [ rent, setRent ] = useState("rent");
+const DeleteButton = styled.button`
+  background-color: #f54545;
+  color: #f5f5f5;
+  font-weight: bold;
+  width: 30px;
+  height: 30px;
+`;
+
+
+const VehiclesItem = ({ _id, model, factory, getAllVehicles}) => {
+  const [ rent, setRent ] = useState("");
 
   const handleRent = async (event) => {
     try {
@@ -16,15 +26,17 @@ const VehiclesItem = ({ inserir as chaves da api}) => {
   const deleteVehicle = async (id) => {
     try {
       await apiVehicles.deleteVehicle(id);
-      await getlAllVehicles();
+      await getAllVehicles();
     } catch (error) {
       console.error(error);
     }
   }
   return (
-    <Row>
+    <div>
       <input type='rent' rent={rent} onChange={handleRent} />
-
-    </Row>
+      <p>{model}</p>
+      <DeleteButton onClick={() => deleteVehicle(_id)}></DeleteButton>
+    </div>
   )
 }
+export default VehiclesItem;

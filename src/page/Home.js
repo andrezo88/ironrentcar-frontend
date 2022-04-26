@@ -1,21 +1,21 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { Navbar } from "../components/Navbar"
-import AddVehicles from '../components/AddVehicles';
+import AddVehicle from '../components/AddVehicle';
 import VehiclesList from '../components/VehiclesList';
 import apiVehicles from '../utils/Api';
 
 export const Home = () => {
-  const [ cars, setCars] = useState([]);
+  const [vehicles, setVehicles] = useState([]);
 
   const navigate = useNavigate();
 
   const getAllVehicles = async () => {
     try {
-      const vehicles = await apiVehicles.getCars();
-      setCars(cars);
+      const vehicles = await apiVehicles.getVehicles();
+      setVehicles(vehicles);
     } catch (error) {
-      console.error('na home!', error.status)
+      console.error(error.status)
       navigate('/login')
     }
   }
@@ -27,9 +27,10 @@ export const Home = () => {
     return (
         <div>
             <Navbar />
-        <AddVehicles getAllVehicles={getAllVehicles} />
-        <VehiclesList cars={cars} getAllVehicles={getAllVehicles} />
+        <AddVehicle getAllVehicles={getAllVehicles} />
+        <VehiclesList vehicles={vehicles} getAllVehicles={getAllVehicles} />
             teste desde home
         </div>
     )
 }
+export default Home;
