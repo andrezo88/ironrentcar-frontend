@@ -20,7 +20,7 @@ export const Login = () => {
         try {
             await apiRentCar.login({ email, password })
             resetForm();
-            navigate("/rent")
+            navigate("/profile")
         } catch (error) {
             setMessage(error.data.msg)
             console.log(error.status)
