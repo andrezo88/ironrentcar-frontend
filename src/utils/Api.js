@@ -29,11 +29,10 @@ class Api {
     }
 
     login = async (loginInfo) => {
-        console.log(loginInfo)
         try {
             const { data } = await this.apiConnection.post("/auth/login", loginInfo)
             localStorage.setItem("token", data.token)
-            localStorage.setItem('loginInfo', JSON.stringify(data.user))
+            localStorage.setItem("loginInfo", JSON.stringify(data.user))
             return data;
         } catch (error) {
             throw error.response
@@ -41,7 +40,6 @@ class Api {
     }
 
     signup = async (signupInfo) => {
-        console.log(signupInfo)
         try {
             const { data } = await this.apiConnection.post("/auth/signup", signupInfo)
             return data;
@@ -50,7 +48,24 @@ class Api {
         }
     }
 
+    getProfile = () => {
+        const userInfo = localStorage.getItem("loginInfo")
+        if (userInfo) {
+            return JSON.parse(userInfo);
+        }
+        const error = new Error();
+        error.response = { data: { msg: "User Info not found!" } }
+        throw error.response;
+    }
 
+    getRentbyUser = async () => {
+        try {
+            const { data } = await this.apiConnection.get("/rent")
+            return data;
+        } catch (error) {
+            throw error.response;
+        }
+    }
 }
 
 export default new Api();
