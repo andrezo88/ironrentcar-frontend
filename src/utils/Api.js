@@ -66,6 +66,15 @@ class Api {
             throw error.response;
         }
     }
+
+    getAllVehicles = async () => {
+        try {
+            const { data } = await this.apiConnection("/group-vehicles")
+            return data;
+        } catch (error) {
+            throw error.response;
+        }
+    }
 }
 
 export default new Api();

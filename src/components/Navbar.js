@@ -24,7 +24,7 @@ export const Navbar = () => {
             </ul>
             <ul className="direita">
 
-                <NavLink to="/"
+                <NavLink to="/vehicles"
                     style={({ isActive }) =>
                         isActive
                             ? {
