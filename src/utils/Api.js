@@ -3,8 +3,7 @@ import axios from "axios";
 class Api {
     constructor() {
         this.apiConnection = axios.create({
-            /* baseURL: "https://ironrentcar-backend.herokuapp.com/" */
-            baseURL: "http://localhost:5001"
+            baseURL: "https://ironrentcar-backend.herokuapp.com/"
         })
 
         this.apiConnection.interceptors.request.use((config) => {
