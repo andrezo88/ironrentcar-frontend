@@ -1,42 +1,31 @@
-import { useState } from 'react';
-import styled from 'styled-components';
-import apiVehicles from '../utils/Api';
+import { NavLink } from "react-router-dom"
 
-const DeleteButton = styled.button`
-  background-color: #f54545;
-  color: #f5f5f5;
-  font-weight: bold;
-  width: 30px;
-  height: 30px;
-`;
+export const VehiclesItem = ({ _id, model, factory, image, description, plate, optional, value, category }) => {
 
-
-const VehiclesItem = ({ _id, model, factory, getAllVehicles }) => {
-  const [rent, setRent] = useState("");
-
-  const handleRent = async (event) => {
-    try {
-      setRent(event.currentTarget.rent);
-      await apiVehicles.updateVehicle(_id)
-      await getAllVehicles();
-    } catch (error) {
-      console.errror(error);
-    }
-  }
-  const deleteVehicle = async (id) => {
-    try {
-      await apiVehicles.deleteVehicle(id);
-      await getAllVehicles();
-    } catch (error) {
-      console.error(error);
-    }
-  }
   return (
-    <div>
-      <input type='rent' rent={rent} onChange={handleRent} />
-      <p>{model}</p>
-      <DeleteButton onClick={() => deleteVehicle(_id)}></DeleteButton>
-    </div>
+    <div className="card mb-3" style={{ maxWidth: "540px" }}>
+      <div className="row g-0">
+        <div className="col-md-4">
+          <img src={image} className="img-fluid rounded-start" alt="..." />
+          <NavLink to="login">
+            <button className="btn btn-primary">Alugue já</button>
+          </NavLink>
+        </div>
+        <div className="col-md-8">
+          <div className="card-body">
+            <h5 className="card-title">{model}</h5>
+            <p className="card-text">{factory}</p>
+            <p className="card-text">{description}</p>
+            <p className="card-text">{optional}</p>
+
+          </div>
+        </div>
+      </div>
+    </div >
   )
 }
-export default VehiclesItem;
+
+
+
+
+

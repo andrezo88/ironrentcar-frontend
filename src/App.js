@@ -6,6 +6,7 @@ import { Vehicles } from './page/Vehicles';
 import { User } from './page/User';
 import { Rent } from './page/Rent';
 
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import './App.css';
 
