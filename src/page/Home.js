@@ -1,13 +1,11 @@
-import React, { useState, useEffect } from 'react';
-import { useNavigate } from "react-router-dom"
+import React from 'react';
 import { Navbar } from "../components/Navbar"
-import AddVehicle from '../components/AddVehicle';
-import VehiclesList from '../components/VehiclesList';
-import apiVehicles from '../utils/Api';
+import { Vehicles } from "../page/Vehicles"
 
 export const Home = () => {
     return <>
         <Navbar />
+        <Vehicles />
     </>
 }
 export default Home;
