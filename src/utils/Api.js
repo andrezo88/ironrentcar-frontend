@@ -18,10 +18,11 @@ class Api {
             console.log(error)
         })
 
-        this.apiConnection.interceptors.request.use((response) => response,
+        this.apiConnection.interceptors.response.use((response) => response,
             (error) => {
-                if (error.response.status === 401) {
-                    localStorage.removeItem("token");
+
+                if (error.response.status === 400 || error.response.status === 401) {
+                    localStorage.clear();
                 }
                 throw error
             })
