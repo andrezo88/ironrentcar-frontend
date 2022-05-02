@@ -1,4 +1,3 @@
-import './Navbar.css';
 import login from "../images/login.svg";
 import register from "../images/register.svg";
 import home from "../images/home.svg"
