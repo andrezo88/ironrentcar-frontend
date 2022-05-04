@@ -7,7 +7,7 @@ export const VehiclesItem = ({ _id, model, factory, image, description, plate, o
       <div className="row g-0">
         <div className="col-md-4">
           <img src={image} className="img-fluid rounded-start" alt="..." />
-          <NavLink to="login">
+          <NavLink to={`/rent/${_id}`}>
             <button className="btn btn-primary">Alugue já</button>
           </NavLink>
         </div>
@@ -24,8 +24,3 @@ export const VehiclesItem = ({ _id, model, factory, image, description, plate, o
     </div >
   )
 }
-
-
-
-
-

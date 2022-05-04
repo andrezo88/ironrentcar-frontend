@@ -1,43 +1,46 @@
 import React from 'react'
-import { useParams } from 'react-router-dom';
+//import { VehiclesItem } from './VehiclesItem';
+
+import { useParams, useNavigate } from 'react-router-dom';
 import { useEffect, useState } from 'react';
-import axios from 'axios';
+import api from "../utils/Api"
 
-export const Rent = () => {
+export const Rent = ({ vehicles, getAllVehicles }) => {
 
-  const [rent, setRent] = useState({});
+  const [car, setCar] = useState({});
 
-  const [index, setIndex] = useState(0);
-  const handleSelect = (selectIndex, e) => {
-    setIndex(selectIndex);
+  const { carId } = useParams();
+
+
+  const getOneCar = async () => {
+    try {
+      const cars = await api.getAllVehicles();
+      const car = cars.find((car) => {
+        return carId === car._id
+      })
+      setCar(car);
+      console.log(car)
+    } catch (error) {
+      console.error(error.status);
+    }
   }
 
-  const { id } = useParams();
-
   useEffect(() => {
-    const getOneRent = async () => {
-      const { data } = await axios.get(PASSAR A URL);
-      setRent(data);
-    };
-    getOneRent();
-  }, [id]);
+    getOneCar();
+  }, []);
+
   return (
     <section className='container'>
       <div>
-        <h4>Top and Bottom</h4>
-          <b-card-group deck>
-            <b-card img-src={} img-alt={} img-top>
-              <b-card-text>
-                {}
-              </b-card-text>
-            </b-card>
-          </b-card-group>
+        <h4>Rent</h4>
+            <img src={car.image} alt={car.model} />
         </div>
-        <div className="mt-4">
-          <h4>{}</h4>
-          <b-card-text>
-            {}
-          </b-card-text>
+        <div className="card-body">
+          <h5 className="card-title">{car.model}</h5>
+          <p className="card-text">{car.factory}</p>
+          <p className="card-text">{car.description}</p>
+          <p className="card-text">{car.optional}</p>
+
         </div>
     </section>
   )
