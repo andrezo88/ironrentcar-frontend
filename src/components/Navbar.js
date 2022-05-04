@@ -2,6 +2,8 @@ import './Navbar.css';
 import login from "../images/login.svg";
 import register from "../images/register.svg";
 import home from "../images/home.svg"
+import user from "../images/user.svg"
+import logout from "../images/logout.svg"
 import ironrentcar from "../images/iron-rent.png";
 import { NavLink, useNavigate } from 'react-router-dom';
 
@@ -14,12 +16,7 @@ export const Navbar = () => {
         navigate('/');
     }
 
-    const isLoggedIn = () => {
-        const auth = localStorage.getItem('loginInfo')
-        return auth
-
-        //auth ? <Outlet /> : <Navigate to='/login' />
-    }
+    const username = JSON.parse(localStorage.getItem("loginInfo"));
 
     return (
         <>
@@ -35,15 +32,20 @@ export const Navbar = () => {
                                 <img src={home} alt="avatarLogin" style={{ width: "30px" }} />Home</NavLink>
                         </li>
                         <li className="nav-item">
-                            <NavLink to="/signup" className="nav-link" aria-current="page">
-                                <img src={register} alt="avatarLogin" style={{ width: "30px", color: "white" }} />Registrar</NavLink>
+                            {username === null ?
+                                <NavLink to="/signup" className="nav-link" aria-current="page">
+                                    <img src={register} alt="avatarLogin" style={{ width: "30px", color: "white" }} />Registrar</NavLink> :
+                                <NavLink to="/profile" className="nav-link">
+                                    <img src={user} alt="avatarLogin" style={{ width: "30px", color: "white" }} />{username.name}</NavLink>
+                            }
                         </li>
                         <li className="nav-item">
-                            <NavLink to="/login" className="nav-link">
-                                <img src={login} alt="avatarLogin" style={{ width: "30px" }} /> Logar</NavLink>
-                        </li>
-                        <li>
-                            <button onClick={handleLogout}>Logout</button>
+                            {username === null ?
+                                <NavLink to="/login" className="nav-link">
+                                    <img src={login} alt="avatarLogin" style={{ width: "30px" }} />Logar</NavLink> :
+                                <NavLink to="/" className="nav-link" onClick={handleLogout}>
+                                    <img src={logout} alt="avatarLogin" style={{ width: "30px" }} />Logout</NavLink>
+                            }
                         </li>
                     </ul>
 
@@ -52,5 +54,5 @@ export const Navbar = () => {
         </>
 
     )
-    //teste
 }
+
