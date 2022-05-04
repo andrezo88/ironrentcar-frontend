@@ -3,9 +3,23 @@ import login from "../images/login.svg";
 import register from "../images/register.svg";
 import home from "../images/home.svg"
 import ironrentcar from "../images/iron-rent.png";
-import { NavLink } from 'react-router-dom';
+import { NavLink, useNavigate } from 'react-router-dom';
 
 export const Navbar = () => {
+
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        localStorage.clear();
+        navigate('/');
+    }
+
+    const isLoggedIn = () => {
+        const auth = localStorage.getItem('loginInfo')
+        return auth
+
+        //auth ? <Outlet /> : <Navigate to='/login' />
+    }
 
     return (
         <>
@@ -28,7 +42,9 @@ export const Navbar = () => {
                             <NavLink to="/login" className="nav-link">
                                 <img src={login} alt="avatarLogin" style={{ width: "30px" }} /> Logar</NavLink>
                         </li>
-
+                        <li>
+                            <button onClick={handleLogout}>Logout</button>
+                        </li>
                     </ul>
 
                 </div>

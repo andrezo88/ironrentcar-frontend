@@ -24,10 +24,7 @@ export const User = () => {
         getProfile();
     }, [navigate]);
 
-    const handleLogout = () => {
-        localStorage.clear();
-        navigate('/');
-    }
+
     return (
         <>
             <Navbar />
@@ -35,9 +32,7 @@ export const User = () => {
                 <li>
                     User
                 </li>
-                <li>
-                    <button onClick={handleLogout}>Logout</button>
-                </li>
+
             </form>
             <UserProfile {...user.userInfo} rents={user.rents} />
         </>

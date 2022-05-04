@@ -23,7 +23,7 @@ export const Vehicles = () => {
     }, [])
 
     return (
-        <div>
+        <div style={{ marginTop: "100px" }}>
             <VehiclesList vehicles={vehicles} getAllVehicles={getAllVehicles} />
         </div>
     )
