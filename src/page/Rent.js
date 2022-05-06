@@ -33,15 +33,15 @@ export const Rent = ({ vehicles, getAllVehicles }) => {
     <section className='container'>
       <div>
         <h4>Rent</h4>
-            <img src={car.image} alt={car.model} />
-        </div>
-        <div className="card-body">
-          <h5 className="card-title">{car.model}</h5>
-          <p className="card-text">{car.factory}</p>
-          <p className="card-text">{car.description}</p>
-          <p className="card-text">{car.optional}</p>
+        <img src={car.image} alt={car.model} />
+      </div>
+      <div className="card-body">
+        <h5 className="card-title">{car.model}</h5>
+        <p className="card-text">{car.factory}</p>
+        <p className="card-text">{car.description}</p>
+        <p className="card-text">{car.optional}</p>
 
-        </div>
+      </div>
     </section>
   )
 }

@@ -36,7 +36,7 @@ export const Navbar = () => {
                                 <NavLink to="/signup" className="nav-link" aria-current="page">
                                     <img src={register} alt="avatarLogin" style={{ width: "30px", color: "white" }} />Registrar</NavLink> :
                                 <NavLink to="/profile" className="nav-link">
-                                    <img src={user} alt="avatarLogin" style={{ width: "30px", color: "white" }} />{username.name}</NavLink>
+                                    <img src={user} alt="avatarLogin" style={{ width: "30px", color: "white" }} />{username.name.split(" ")[0]}</NavLink>
                             }
                         </li>
                         <li className="nav-item">

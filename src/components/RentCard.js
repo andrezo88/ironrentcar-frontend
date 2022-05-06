@@ -1,14 +1,26 @@
 import React from 'react'
+import { NavLink } from 'react-router-dom';
 
-export const RentCard = ({ _id, periodRent, value, car, payment }) => {
+
+export const RentCard = ({ _id, createdAt, car }) => {
+
+    const created = createdAt.split('', [10])
+
+
+
     return (
         <>
 
-            <div>Rent ID: {_id}</div>
-            <div>Period Rent: {periodRent}</div>
-            <div>Value: {value}</div>
-            <div>Car: {car.model} </div>
-            <div>Payments: {payment}</div>
+            <div>
+                <span>Carro Locado: </span>
+                {car.model}
+            </div>
+            <div>
+                <span>Locação dia: </span>
+                <NavLink to={`/rented/${_id}`}>
+                    {created}
+                </NavLink>
+            </div>
         </>
     )
 }
