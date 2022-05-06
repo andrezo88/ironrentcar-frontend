@@ -59,7 +59,7 @@ export const Signup = () => {
                                                 <div className="input-group-text">
                                                     <span>✉️</span>
                                                 </div>
-                                                <input className="input-group-text col-lg-10 col-md-10 col-sm-10 col-9" id="password" type="text" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)}></input>
+                                                <input className="input-group-text col-lg-10 col-md-10 col-sm-10 col-9" id="email" type="text" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)}></input>
                                             </div>
                                         </div>
                                         <label htmlFor="email" >Password</label>
