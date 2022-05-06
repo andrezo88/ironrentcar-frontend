@@ -75,6 +75,15 @@ class Api {
             throw error.response;
         }
     }
+
+    newRent = async (_id, car, periodRent, value, payment) => {
+      try {
+        const { data } = await this.apiConnection.post(`/rent/${_id}`, {car, periodRent, value, payment});
+        return data
+      } catch (error) {
+        throw error.response
+      }
+    }
 }
 
 export default new Api();

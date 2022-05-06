@@ -8,4 +8,3 @@ export const Home = () => {
         <Vehicles />
     </>
 }
-export default Home;
