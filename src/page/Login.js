@@ -58,7 +58,11 @@ export const Login = () => {
                                                 <div className="input-group-text">
                                                     <span>🔒</span>
                                                 </div>
-                                                <input className="input-group-text col-lg-10 col-md-10 col-sm-10 col-9" id="password" type="password" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)}></input>
+                                                <input className="input-group-text col-lg-10 col-md-10 col-sm-10 col-9"
+                                                    id="password"
+                                                    type="password"
+                                                    placeholder="Password"
+                                                    value={password} onChange={e => setPassword(e.target.value)}></input>
                                             </div>
                                         </div>
                                         <div className="text-center">
