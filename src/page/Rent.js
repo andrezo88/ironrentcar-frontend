@@ -1,16 +1,19 @@
 import React from 'react'
 //import { VehiclesItem } from './VehiclesItem';
-
-import { useParams, useNavigate } from 'react-router-dom';
+import {Navbar} from '../components/Navbar';
+import { useParams, useNavigate, NavLink } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import api from "../utils/Api"
 
 export const Rent = ({ vehicles, getAllVehicles }) => {
 
   const [car, setCar] = useState({});
-
+  const [rent, setRent] = useState({})
+  const [value, setValue] = useState()
+  const [periodRent, setPeriodRent] = useState(0);
   const { carId } = useParams();
-
+  const payment = "credit card";
+  const navigate = useNavigate();
 
   const getOneCar = async () => {
     try {
@@ -19,29 +22,76 @@ export const Rent = ({ vehicles, getAllVehicles }) => {
         return carId === car._id
       })
       setCar(car);
-      console.log(car)
+      setValue(car.value);
     } catch (error) {
       console.error(error.status);
     }
   }
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+    try {
+      await api.newRent(carId, car, periodRent, value, payment);
+      navigate("/vehicles");
+    } catch (error) {
+      console.error(error.status);
+    }
+  }
+
+  const handleCancel = (e) => {
+    e.preventDefault();
+    navigate('/');
+  }
+
+  console.log(periodRent);
   useEffect(() => {
     getOneCar();
   }, []);
 
+  let total = periodRent * car.value;
+
   return (
+    <>
+    <Navbar />
     <section className='container'>
       <div>
         <h4>Rent</h4>
             <img src={car.image} alt={car.model} />
         </div>
         <div className="card-body">
-          <h5 className="card-title">{car.model}</h5>
-          <p className="card-text">{car.factory}</p>
-          <p className="card-text">{car.description}</p>
-          <p className="card-text">{car.optional}</p>
-
+          <h5 className="card-title">Modelo: {car.model}</h5>
+          <p className="card-title">Fabricante: {car.factory}</p>
+          <p className="card-title">Descrição: {car.description}</p>
+          <p className="card-title">Opcionais: {car.optional}</p>
+          <p className="card-title">Valor: {car.value}</p>
         </div>
     </section>
+    <section>
+        <div>
+          <label>Dias de aluguel:</label>
+          <input
+            type='text'
+            id='days_rents'
+            value={periodRent}
+            placeholder="Digite a qtde de dias"
+            onChange={(e) => setPeriodRent(e.target.value)}
+          />
+        </div>
+        <div>
+          <p>Valor da diária: R$ {car.value},00</p>
+        </div>
+        <div>
+          <p>Total: R$ {total},00</p>
+        </div>
+        <div>
+          <button onClick={handleCancel}>Cancelar</button>
+          <button
+            className="btn btn-primary btn-lg"
+            type="submit"
+            onClick={handleSubmit}
+            >Confirmar</button>
+        </div>
+    </section>
+    </>
   )
 }
