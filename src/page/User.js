@@ -28,12 +28,7 @@ export const User = () => {
     return (
         <>
             <Navbar />
-            <form>
-                <li>
-                    User
-                </li>
 
-            </form>
             <UserProfile {...user.userInfo} rents={user.rents} />
         </>
     )

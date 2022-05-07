@@ -8,7 +8,6 @@ import api from "../utils/Api"
 export const Rent = ({ vehicles, getAllVehicles }) => {
 
   const [car, setCar] = useState({});
-  const [rent, setRent] = useState({})
   const [value, setValue] = useState()
   const [periodRent, setPeriodRent] = useState("");
   const { carId } = useParams();
@@ -32,7 +31,7 @@ export const Rent = ({ vehicles, getAllVehicles }) => {
     e.preventDefault();
     try {
       await api.newRent(carId, car, periodRent, value, payment);
-      navigate("/vehicles");
+      navigate("/profile");
     } catch (error) {
       console.error(error.status);
     }
@@ -43,13 +42,12 @@ export const Rent = ({ vehicles, getAllVehicles }) => {
     navigate('/');
   }
 
-  console.log(periodRent);
   useEffect(() => {
     getOneCar();
   }, []);
 
   let total = periodRent * car.value;
-
+  const username = JSON.parse(localStorage.getItem("loginInfo"));
   return (
     <>
       <Navbar />
@@ -57,7 +55,7 @@ export const Rent = ({ vehicles, getAllVehicles }) => {
         <section className="p-5">
           <div>
             <h4>Rent</h4>
-            <img src={car.image} alt={car.model} />
+            <img src={car.image} alt={car.model} style={{ height: "400px" }} />
           </div>
           <div className="card-body">
             <h5 className="card-title">Modelo: {car.model}</h5>
@@ -91,12 +89,19 @@ export const Rent = ({ vehicles, getAllVehicles }) => {
               className="btn btn-primary btn-lg"
               onClick={handleCancel}>Cancelar
             </button>
-            <button
-              className="btn btn-primary btn-lg"
-              type="submit"
-              onClick={handleSubmit}
-            >Confirmar
-            </button>
+            {username ?
+              <button
+                className="btn btn-primary btn-lg"
+                type="submit"
+                onClick={handleSubmit}
+              >Confirmar
+              </button> :
+              <NavLink to="/login"> <button
+                className="btn btn-primary btn-lg"
+                type="submit"
+              >Login
+              </button></NavLink>
+            }
           </div>
         </section>
       </div>
