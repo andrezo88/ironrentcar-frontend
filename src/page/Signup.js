@@ -25,7 +25,6 @@ export const Signup = () => {
             navigate("/login");
         } catch (error) {
             setMessage(error.data.msg)
-            console.log(message)
         }
     }
     return (

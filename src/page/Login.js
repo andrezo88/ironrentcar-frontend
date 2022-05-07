@@ -24,7 +24,6 @@ export const Login = () => {
             navigate("/")
         } catch (error) {
             setMessage(error.data.msg)
-            console.log(error.status)
         }
     }
 

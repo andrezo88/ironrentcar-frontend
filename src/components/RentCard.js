@@ -4,7 +4,7 @@ import { NavLink } from 'react-router-dom';
 
 export const RentCard = ({ _id, createdAt, model, car }) => {
 
-    console.log(car.model)
+
     const created = createdAt.split('', [10])
 
 
@@ -15,7 +15,7 @@ export const RentCard = ({ _id, createdAt, model, car }) => {
                 <div className="card mb-2 p-2 col-lg-4 d-flex rounded mx-auto d-block text-center">
                     <div className="card">
                         <div className="card-body">
-                            <h5 className="card-title">Detalhe locação do veículo:</h5>
+                            <h5 className="card-title">Detalhes da locação do veículo:</h5>
                             <p className="card-text"><h3>Carro Locado: {car.factory} {car.model} </h3>
                             </p>
 

@@ -11,7 +11,7 @@ export const UserProfile = ({ name, email, rents }) => {
             </div>
             <div>
                 {rents.map(rent => <RentCard key={rent._id} {...rent} />)}
-                {console.log(rents.model)}
+
             </div>
         </>
     )
