@@ -10,9 +10,9 @@ export const RentCard = ({ _id, createdAt, model, car }) => {
 
 
     return (
-        <>
+        <div >
             <div >
-                <div className="card mb-2 p-2 col-lg-4 d-flex rounded mx-auto d-block text-center">
+                <div className="card mb-2 p-2 col-lg-4 d-flex rounded mx-auto d-block text-center" style={{ backgroundColor: "#E6E6E6" }}>
                     <div className="card">
                         <div className="card-body">
                             <h5 className="card-title">Detalhes da locação do veículo:</h5>
@@ -30,7 +30,7 @@ export const RentCard = ({ _id, createdAt, model, car }) => {
                     </div>
                 </div>
             </div>
-        </>
+        </div>
     )
 }
 
