@@ -37,7 +37,8 @@ export const Rented = () => {
                         <h4>Detalhes da locação:</h4>
                     </div>
                     <div className="card-body">
-                        <h5 className="card-title">Período da locação: {rent.periodRent} dia(s)</h5>
+                        <h5 className="card-title">Período da locação: {rent.periodRent} {rent.periodRent > 1 ? <span>dias</span> : <span>dia</span>}
+                        </h5>
                         <p className="card-title">Valor total da locação: R${total},00</p>
                         <p className="card-title">Código da locação: {rent._id}</p>
                         <p className="card-title">Data da locação: {rent.createdAt}</p>

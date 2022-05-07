@@ -20,6 +20,8 @@ export const RentCard = ({ _id, createdAt, model, car }) => {
                             </p>
 
                             <div>
+                                <span> Data da Locação:
+                                </span>
                                 <NavLink to={`/rented/${_id}`}>
                                     {created}
                                 </NavLink>
