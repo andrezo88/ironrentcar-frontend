@@ -8,9 +8,9 @@ Front end todo feito em ReactJs, utilizando hooks, boostrap,  axios, e consumind
 
 ## Tech
 
--[ReactJs] - ReactJs
--[Bootstrap] - Boostrap
--[Axios] - Axios
+- [ReactJs] ReactJs
+- [Bootstrap] Boostrap
+- [Axios] Axios
 
 
 ## Links
