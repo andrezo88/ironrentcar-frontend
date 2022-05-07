@@ -28,7 +28,6 @@ export const Rented = () => {
     }, []);
 
     const total = rent.periodRent * rent.value
-
     return (
         <>
             <Navbar />
@@ -36,11 +35,10 @@ export const Rented = () => {
                 <section className="p-5">
                     <div>
                         <h4>Detalhes da locação:</h4>
-                        {/* <img src={image} alt={model} style={{ height: "400px" }} /> */}
                     </div>
                     <div className="card-body">
-                        <h5 className="card-title">Período da locação: {rent.periodRent}</h5>
-                        <p className="card-title">Valor total da locação: {total}</p>
+                        <h5 className="card-title">Período da locação: {rent.periodRent} dia(s)</h5>
+                        <p className="card-title">Valor total da locação: R${total},00</p>
                         <p className="card-title">Código da locação: {rent._id}</p>
                         <p className="card-title">Data da locação: {rent.createdAt}</p>
                     </div>
